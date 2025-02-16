@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cca26uoalfftb"]
+
+[ext_resource type="Script" path="res://platformer_character.gd" id="1_enu7c"]
+[ext_resource type="Texture2D" uid="uid://ccabiblvvjoia" path="res://wimiProductions.png" id="2_8awfh"]
+[ext_resource type="Script" path="res://scenes/virtual_controller.gd" id="2_snbmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuslj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t0vg"]
+
+[node name="platformer_character" type="CharacterBody2D"]
+script = ExtResource("1_enu7c")
+
+[node name="virtual_controller" type="Node" parent="."]
+process_priority = -1
+script = ExtResource("2_snbmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cuslj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0647773, 0.0647774)
+texture = ExtResource("2_8awfh")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_6t0vg")
+disabled = true
+debug_color = Color(0.985947, 0, 0.328636, 0.42)
